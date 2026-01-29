@@ -1,6 +1,6 @@
 ﻿@using System.Reflection
 @inject NavigationManager NavigationManager
-<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="additionalAssemblies">
+<Router AppAssembly="typeof(Program).Assembly" >
     <Found Context="routeData">
         <RouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)" />
         <FocusOnNavigate RouteData="routeData" Selector="h1" />
@@ -11,6 +11,3 @@
         }
     </NotFound>
 </Router>
-@code {
-    List<Assembly> additionalAssemblies = [typeof(StoreCore.WebApp.Client._Imports).Assembly];
-}
