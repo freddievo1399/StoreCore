@@ -1,0 +1,18 @@
+﻿@using System.Runtime.InteropServices;
+@rendermode InteractiveAuto
+@attribute [StreamRendering]
+
+<p>
+    Chế độ hiện tại:
+    <b>@(RuntimeInformation.IsOSPlatform(OSPlatform.Create("BROWSER")) ? "Client (Wasm)" : "Server")</b>
+</p>
+<p>Đang ở Browser: @OperatingSystem.IsBrowser()</p>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+@code {
+
+    private void IncrementCount()
+    {
+        Console.WriteLine(DateTime.Now);
+        StateHasChanged();
+    }
+}
