@@ -6,7 +6,7 @@ using Syncfusion.Blazor;
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.Services.AddSyncfusionBlazor();
 LicenseRegister.SyncfusionLicenseRegister(builder.Configuration["SyncfusionLicenseKey"] ?? "");
-builder.Services.AddScoped(typeof(HttpService<>), typeof(IAppService<>));
+builder.Services.AddScoped(typeof(IAppService<>), typeof(HttpService<>));
 
 //builder.
 var app = builder.Build();

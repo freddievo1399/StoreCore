@@ -1,7 +1,6 @@
 using Microsoft.OpenApi.Models;
 using StoreCore.WebApp;
 using StoreCore.WebApp.Abstractions;
-using StoreCore.WebApp.Client.Service;
 using StoreCore.WebApp.Components;
 using StoreCore.WebApp.Infrastructure;
 
@@ -24,7 +23,7 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddHttpContextAccessor();
 
 
-builder.Services.AddScoped(typeof(AutoDI<>), typeof(IAppService<>));
+builder.Services.AddScoped(typeof(IAppService<>),typeof(AutoDI<>));
 
 
 LicenseRegister.SyncfusionLicenseRegister(builder.Configuration["SyncfusionLicenseKey"] ?? "");
