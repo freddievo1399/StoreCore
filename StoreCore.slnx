@@ -1,7 +1,7 @@
 <Solution>
   <Folder Name="/Base/">
     <Project Path="StoreCore.WebApp.Abstractions/StoreCore.WebApp.Abstractions.csproj" />
-    <Project Path="StoreCore.WebApp.Blazor/StoreCore.WebApp.BaseBlazor.csproj" Id="a31f3592-6bef-464d-b2e1-c73a10463d8c" />
+    <Project Path="StoreCore.WebApp.BaseBlazor/StoreCore.WebApp.BaseBlazor.csproj" Id="a31f3592-6bef-464d-b2e1-c73a10463d8c" />
     <Project Path="StoreCore.WebApp.Infrastructure/StoreCore.WebApp.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/ModuleProduct/">
@@ -9,6 +9,12 @@
     <Project Path="StoreCore.Product.Server/StoreCore.Product.Server.csproj" Id="d9192db6-46ab-4331-8c78-8db3340794a6" />
     <Project Path="StoreCore.Product.Share/StoreCore.Product.Shared.csproj" Id="397a7d21-c651-4249-a481-5b64b6e2ff32" />
   </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".env" />
+  </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
   <Project Path="StoreCore.WebApp/StoreCore.WebApp.Client/StoreCore.WebApp.Client.csproj" />
   <Project Path="StoreCore.WebApp/StoreCore.WebApp/StoreCore.WebApp.csproj" />
 </Solution>

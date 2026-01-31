@@ -1,7 +1,6 @@
 ﻿@page "/counter"
+@inherits BaseUI
 
-@attribute [StreamRendering]
-@rendermode InteractiveAuto
 <h1>Counter</h1>
 
 <p>The counter value is @currentCount</p>
@@ -12,10 +11,11 @@ Hi
     private int currentCount = 42;
 
     private void IncrementCounter()
-
     {
-
-        currentCount++;
-        Console.WriteLine(currentCount);
+        var ass = AssembliesClientUtil.GetAssemblies();
+        foreach (var item in ass)
+        {
+            Console.WriteLine(item.FullName);
+        }
     }
 }

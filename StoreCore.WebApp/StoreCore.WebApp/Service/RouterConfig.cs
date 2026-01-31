@@ -1,0 +1,15 @@
+﻿using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.AspNetCore.Components.WebAssembly.Services;
+using StoreCore.WebApp.BaseBlazor;
+using StoreCore.WebApp.Client.Component;
+using System.Reflection;
+
+namespace StoreCore.WebApp;
+
+public class RouterConfig() : IRouterConfig
+{
+    public async Task OnNavigateAsync(NavigationContext args)
+    {
+    }
+    
+}

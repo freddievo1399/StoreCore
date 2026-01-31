@@ -12,11 +12,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["StoreCore.WebApp/StoreCore.WebApp/StoreCore.WebApp.csproj", "StoreCore.WebApp/StoreCore.WebApp/"]
-COPY ["StoreCore.WebApp.Infrastructure/StoreCore.WebApp.Infrastructure.csproj", "StoreCore.WebApp.Infrastructure/"]
-COPY ["StoreCore.WebApp.Abstractions/StoreCore.WebApp.Abstractions.csproj", "StoreCore.WebApp.Abstractions/"]
-COPY ["StoreCore.WebApp/StoreCore.WebApp.Client/StoreCore.WebApp.Client.csproj", "StoreCore.WebApp/StoreCore.WebApp.Client/"]
-COPY ["StoreCore.Product.Blazor/StoreCore.Product.Blazor.csproj", "StoreCore.Product.Blazor/"]
+COPY ["StoreCore.Product.Server/StoreCore.Product.Server.csproj", "StoreCore.Product.Server/"]
 COPY ["StoreCore.Product.Share/StoreCore.Product.Shared.csproj", "StoreCore.Product.Share/"]
+COPY ["StoreCore.WebApp.Abstractions/StoreCore.WebApp.Abstractions.csproj", "StoreCore.WebApp.Abstractions/"]
+COPY ["StoreCore.WebApp.Infrastructure/StoreCore.WebApp.Infrastructure.csproj", "StoreCore.WebApp.Infrastructure/"]
+COPY ["StoreCore.WebApp/StoreCore.WebApp.Client/StoreCore.WebApp.Client.csproj", "StoreCore.WebApp/StoreCore.WebApp.Client/"]
 COPY ["StoreCore.WebApp.Blazor/StoreCore.WebApp.BaseBlazor.csproj", "StoreCore.WebApp.Blazor/"]
 RUN dotnet restore "./StoreCore.WebApp/StoreCore.WebApp/StoreCore.WebApp.csproj"
 COPY . .

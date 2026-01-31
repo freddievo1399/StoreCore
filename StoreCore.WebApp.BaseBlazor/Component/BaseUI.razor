@@ -1,0 +1,15 @@
+﻿@attribute [StreamRendering]
+@rendermode InteractiveAuto
+@layout MainLayout
+@code {
+    [Inject]
+    IJSRuntime JS { get; set; }
+    public async Task<TItem> JSInvokeAsync<TItem>(string identityfer, object[] arg)
+    {
+        return await JS.InvokeAsync<TItem>(identityfer, arg);
+    }
+    public async Task JSInvokeVoidAsync(string identityfer, object[] arg)
+    {
+        await JS.InvokeVoidAsync(identityfer, arg);
+    }
+}

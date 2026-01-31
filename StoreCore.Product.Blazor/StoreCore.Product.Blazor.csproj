@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StoreCore.Product.Share\StoreCore.Product.Shared.csproj" />
-    <ProjectReference Include="..\StoreCore.WebApp.Blazor\StoreCore.WebApp.BaseBlazor.csproj" />
+    <ProjectReference Include="..\StoreCore.WebApp.BaseBlazor\StoreCore.WebApp.BaseBlazor.csproj" />
   </ItemGroup>
 
 </Project>

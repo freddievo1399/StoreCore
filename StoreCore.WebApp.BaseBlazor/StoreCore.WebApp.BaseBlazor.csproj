@@ -20,10 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Component\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\StoreCore.WebApp.Abstractions\StoreCore.WebApp.Abstractions.csproj" />
   </ItemGroup>
 

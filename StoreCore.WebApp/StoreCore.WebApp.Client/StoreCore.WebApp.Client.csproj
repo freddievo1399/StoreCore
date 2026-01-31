@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -14,7 +13,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\StoreCore.Product.Blazor\StoreCore.Product.Blazor.csproj" />
-    <ProjectReference Include="..\..\StoreCore.WebApp.Blazor\StoreCore.WebApp.BaseBlazor.csproj" />
+    <ProjectReference Include="..\..\StoreCore.Product.Share\StoreCore.Product.Shared.csproj" />
+    <ProjectReference Include="..\..\StoreCore.WebApp.Abstractions\StoreCore.WebApp.Abstractions.csproj" />
+    <ProjectReference Include="..\..\StoreCore.WebApp.BaseBlazor\StoreCore.WebApp.BaseBlazor.csproj" />
   </ItemGroup>
-
+  
+  <PropertyGroup>
+    <BlazorWebAssemblyLazyLoad>true</BlazorWebAssemblyLazyLoad>
+  </PropertyGroup>
+  <ItemGroup>
+    <BlazorWebAssemblyLazyLoad Include="StoreCore.Product.Blazor.wasm" />
+  </ItemGroup>
 </Project>

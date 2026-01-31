@@ -39,7 +39,7 @@ public static class AssembliesUtil
             GetAssemblies();
         }
 
-        var Assemblies = allAssemblies?.Where(x => x.ManifestModule.Name.Contains(".Blazor")).ToList() ?? new List<Assembly>();
+        var Assemblies = allAssemblies?.Where(x => x.ManifestModule.Name.EndsWith(".Blazor.dll")).ToList() ?? new List<Assembly>();
         return Assemblies;
     }
     public static IEnumerable<Assembly> GetAssembliesServer()
@@ -49,7 +49,7 @@ public static class AssembliesUtil
             GetAssemblies();
         }
 
-        var Assemblies = allAssemblies?.Where(x => x.ManifestModule.Name.EndsWith(".Server")).ToList() ?? new List<Assembly>();
+        var Assemblies = allAssemblies?.Where(x => x.ManifestModule.Name.EndsWith(".Server.dll")).ToList() ?? new List<Assembly>();
         return Assemblies;
     }
     public static IEnumerable<TypeInfo> GetTypes<T>(this IEnumerable<Assembly> assemblies)
