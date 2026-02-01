@@ -15,7 +15,7 @@
     <ProjectReference Include="..\..\StoreCore.Product.Blazor\StoreCore.Product.Blazor.csproj" />
     <ProjectReference Include="..\..\StoreCore.Product.Share\StoreCore.Product.Shared.csproj" />
     <ProjectReference Include="..\..\StoreCore.WebApp.Abstractions\StoreCore.WebApp.Abstractions.csproj" />
-    <ProjectReference Include="..\..\StoreCore.WebApp.BaseBlazor\StoreCore.WebApp.BaseBlazor.csproj" />
+    <!--<ProjectReference Include="..\..\StoreCore.WebApp.BaseBlazor\StoreCore.WebApp.BaseBlazor.csproj" />-->
   </ItemGroup>
   
   <PropertyGroup>

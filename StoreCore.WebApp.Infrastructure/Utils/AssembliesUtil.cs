@@ -56,4 +56,24 @@ public static class AssembliesUtil
     {
         return assemblies.SelectMany(a => a.DefinedTypes.Where(x => x.GetInterfaces().Contains(typeof(T))));
     }
+    public static IEnumerable<T> GetInstances<T>(this IEnumerable<Assembly> assemblies)
+    {
+        if (allAssemblies == null)
+        {
+            GetAssemblies();
+        }
+        ;
+        var instances = new List<T>();
+
+        foreach (Type implementation in assemblies.GetTypes<T>())
+        {
+            if (implementation.GetTypeInfo().IsAbstract)
+                continue;
+
+            var instance = (T)Activator.CreateInstance(implementation);
+            instances.Add(instance);
+        }
+
+        return instances;
+    }
 }

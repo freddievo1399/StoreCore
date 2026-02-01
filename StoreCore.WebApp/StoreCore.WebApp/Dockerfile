@@ -17,7 +17,8 @@ COPY ["StoreCore.Product.Share/StoreCore.Product.Shared.csproj", "StoreCore.Prod
 COPY ["StoreCore.WebApp.Abstractions/StoreCore.WebApp.Abstractions.csproj", "StoreCore.WebApp.Abstractions/"]
 COPY ["StoreCore.WebApp.Infrastructure/StoreCore.WebApp.Infrastructure.csproj", "StoreCore.WebApp.Infrastructure/"]
 COPY ["StoreCore.WebApp/StoreCore.WebApp.Client/StoreCore.WebApp.Client.csproj", "StoreCore.WebApp/StoreCore.WebApp.Client/"]
-COPY ["StoreCore.WebApp.Blazor/StoreCore.WebApp.BaseBlazor.csproj", "StoreCore.WebApp.Blazor/"]
+COPY ["StoreCore.Product.Blazor/StoreCore.Product.Blazor.csproj", "StoreCore.Product.Blazor/"]
+COPY ["StoreCore.WebApp.BaseBlazor/StoreCore.WebApp.BaseBlazor.csproj", "StoreCore.WebApp.BaseBlazor/"]
 RUN dotnet restore "./StoreCore.WebApp/StoreCore.WebApp/StoreCore.WebApp.csproj"
 COPY . .
 WORKDIR "/src/StoreCore.WebApp/StoreCore.WebApp"

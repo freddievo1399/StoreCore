@@ -16,12 +16,5 @@ builder.Services.AddScoped(sp => new HttpClient
 builder.Services.AddScoped<LazyAssemblyLoader>();
 builder.Services.AddScoped<IRouterConfig, RouterConfig>();
 var app = builder.Build();
-AssembliesClientUtil.GetDefaulAssembly = () => new List<Assembly>
-{
-    typeof(StoreCore.WebApp.BaseBlazor._Imports).Assembly,
-    typeof(StoreCore.WebApp.Client._Imports).Assembly,
-    typeof(StoreCore.Product.Shared.RegisterPermistion).Assembly,
-    typeof(StoreCore.WebApp.Abstractions.IRegisterPermistion).Assembly
-};
 var abc = AssembliesClientUtil.GetAssemblies();
 await app.RunAsync();
