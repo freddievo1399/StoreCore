@@ -9,7 +9,7 @@ namespace StoreCore.WebApp.Client
 {
     public static class AssembliesClientUtil
     {
-        private static List<Assembly> allAssemblies = null;
+        private static List<Assembly>? allAssemblies = null;
 
         private static IEnumerable<Assembly> GetDefaulAssembly => new List<Assembly>
         {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -18,34 +19,6 @@ namespace StoreCore.WebApp.Infrastructure
             foreach (var i in entityRegisters)
             {
                 i.RegisterEntities(modelBuilder);
-            }
-            foreach (var modelType in modelBuilder.Model.GetEntityTypes())
-            {
-                var nameTable = modelType.FindAnnotation("Relational:TableName");
-                var entity = modelBuilder.Entity(modelType.Name);
-                if (nameTable != null)
-                {
-                    entity.ToTable(nameTable.Value?.ToString());
-                }
-
-                var props = entity.Metadata.GetDeclaredProperties();
-                foreach (IMutableProperty prop in props)
-                {
-
-                    var propEntity = entity.Property(prop.Name);
-                    var clrType = prop.ClrType;
-                    if (clrType == typeof(decimal) || clrType == typeof(decimal?))
-                    {
-                        var Precision = prop.FindAnnotation(nameof(PrecisionAttribute));
-
-                        if (Precision == null)
-                        {
-                            propEntity.HasPrecision(18, 6);
-                        }
-                        continue;
-                    }
-                }
-
             }
             base.OnModelCreating(modelBuilder);
         }

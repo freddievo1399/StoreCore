@@ -23,17 +23,27 @@ builder.Services.AddSwaggerGen(option =>
 
     option.DocInclusionPredicate((groupName, apiDesc) => apiDesc.GroupName == groupName);
 });
+builder.Services.AddPooledDbContextFactory<ApplicationDbContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    if (builder.Environment.IsDevelopment())
+    {
+        options.EnableSensitiveDataLogging();
+    }
+});
+builder.Services.AddScoped(p =>
+    p.GetRequiredService<IDbContextFactory<ApplicationDbContext>>().CreateDbContext()
+);
+
 builder.Services.AddHttpContextAccessor();
 
-
+builder.Services.RegisterServices();
 builder.Services.AddScoped(typeof(IAppService<>), typeof(AutoDI<>));
 builder.Services.AddScoped<IRouterConfig, RouterConfig>();
 builder.Services.AddScoped<LazyAssemblyLoader>();
-builder.Services.AddDbContextFactory<ApplicationDbContext>(options =>
-{
-    options.UseNpgsql(ConnectionStrings__DefaultConnection);
-    options.EnableSensitiveDataLogging();
-});
+builder.Services.AddSingleton<IDataSessionProvider, DataSessionProvider>();
+// Đăng ký DbContext với Factory Pooling để tối ưu hiệu năng
+
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(@"/app/dpkeys"));
 

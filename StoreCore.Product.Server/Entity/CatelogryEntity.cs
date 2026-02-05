@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StoreCore.WebApp.Abstractions;
 using StoreCore.WebApp.Infrastructure;
-using StoreCore.WebApp.Infrastructure.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,13 +12,12 @@ using System.Threading.Tasks;
 namespace StoreCore.Product.Server
 {
     [Index(nameof(Name), IsUnique = true)]
-    [Table("PRODUCT")]
-    public class ProductEntity : EntityBase
+    [Table("CATELORY")]
+    public class CatelogryEntity : EntityBase
     {
         [Required]
         public required string Name { get; set; }
 
-        [NoForeignKey]
-        public CatelogryEntity? Catelogry { get; set; }
+        public List<ProductEntity> Products { get; set; } = new();
     }
 }

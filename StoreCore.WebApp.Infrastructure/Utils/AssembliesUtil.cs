@@ -9,14 +9,14 @@ namespace StoreCore.WebApp.Infrastructure;
 
 public static class AssembliesUtil
 {
-    private static List<Assembly> allAssemblies = null;
+    private static List<Assembly>? allAssemblies = null;
     public static IEnumerable<Assembly> GetAssemblies()
     {
         if (allAssemblies == null)
         {
             var modules = new List<Assembly>();
             var abc = Assembly.GetExecutingAssembly();
-            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw (new Exception("Not fould"));
             var files = Directory.GetFiles(path, "*.dll");
 
             foreach (string dll in files.Where(x => Path.GetFileName(x).StartsWith("StoreCore")))
@@ -70,8 +70,12 @@ public static class AssembliesUtil
             if (implementation.GetTypeInfo().IsAbstract)
                 continue;
 
-            var instance = (T)Activator.CreateInstance(implementation);
-            instances.Add(instance);
+            var instance = Activator.CreateInstance(implementation);
+            if (instance == null)
+            {
+                continue;
+            }
+            instances.Add((T)instance);
         }
 
         return instances;
